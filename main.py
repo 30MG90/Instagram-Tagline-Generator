@@ -28,7 +28,7 @@ from langchain import LLMChain
 # Create LLM chain using the prompt template and model
 tweet_chain_insta = tweet_prompt_insta | gemini_model
 
-response = tweet_chain_insta.invoke({"number" : 10, "topic" : "India"})
+response = tweet_chain_insta.invoke({"number" : 10, "topic" : "India", "character": 200})
 print(response.content)
 
 
@@ -38,7 +38,7 @@ st.subheader("Generate Instagram text for your posts!")
 
 Topic = st.text_input("Please enter the topic of your post")
 Number = st.number_input("How Many Suggestions would You Like to Generate", min_value=1, max_value=10, step=1)
-Character = st.number_input("How many word characters should I generate")
+Character = st.number_input("How many word characters should I generate", min_value=50, max_value=1000, step=50, value=200))
 if st.button("Generate"):
     tweet = tweet_chain_insta.invoke({"number" : Number, "topic" : Topic, "character" : Character})
     st.write(tweet.content)
