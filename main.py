@@ -11,12 +11,13 @@ from langchain import PromptTemplate
 # Create prompt template for generating Instagram text
 
 tweet_template_insta = """Give me {number} post content on {topic} in English.
-1. Limit each content to a maximum of 20 words.
+1. Limit each content to a maximum of 50 words.
 2. Ensure all content is respectful and appropriate for all audiences.
 3. Avoid creating content on offensive, controversial, or sensitive topics.
 4. Understand the context and give the content
 5. Add top 3 relevant hashtags
 6. Consider the SEO value of the content and write it with keyword value
+7. Write it like a sotry narrative
 """ 
 
 
