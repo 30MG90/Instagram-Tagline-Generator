@@ -10,18 +10,18 @@ from langchain import PromptTemplate
 
 # Create prompt template for generating Instagram text
 
-tweet_template_insta = """Give me {number} post content on {topic} in English.
-1. Limit each content to a maximum of 50 words.
+tweet_template_insta = """Give me {number} post content on {topic} in English under {character} limit.
+
 2. Ensure all content is respectful and appropriate for all audiences.
 3. Avoid creating content on offensive, controversial, or sensitive topics.
 4. Understand the context and give the content
-5. Add top 3 relevant hashtags
+5. Add the top 3 relevant hashtags
 6. Consider the SEO value of the content and write it with keyword value
-7. Write it like a sotry narrative
+7. Write it like a story narrative
 """ 
 
 
-tweet_prompt_insta = PromptTemplate(template = tweet_template_insta, input_variables = ['number', 'topic'])
+tweet_prompt_insta = PromptTemplate(template = tweet_template_insta, input_variables = ['number', 'topic','character'])
 
 from langchain import LLMChain
 
@@ -38,6 +38,7 @@ st.subheader("Generate Instagram text for your posts!")
 
 Topic = st.text_input("Please enter the topic of your post")
 Number = st.number_input("How Many Suggestions would You Like to Generate", min_value=1, max_value=10, step=1)
+Character = st.number_input("How many word characters should I generate"_
 if st.button("Generate"):
-    tweet = tweet_chain_insta.invoke({"number" : Number, "topic" : Topic})
+    tweet = tweet_chain_insta.invoke({"number" : Number, "topic" : Topic, "character" : Character})
     st.write(tweet.content)
