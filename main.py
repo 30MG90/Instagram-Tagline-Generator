@@ -38,7 +38,7 @@ st.subheader("Generate Instagram text for your posts!")
 
 Topic = st.text_input("Please enter the topic of your post")
 Number = st.number_input("How Many Suggestions would You Like to Generate", min_value=1, max_value=10, step=1)
-Character = st.number_input("How many word characters should I generate")_
+Character = st.number_input("How many word characters should I generate")
 if st.button("Generate"):
     tweet = tweet_chain_insta.invoke({"number" : Number, "topic" : Topic, "character" : Character})
     st.write(tweet.content)
