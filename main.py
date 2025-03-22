@@ -11,7 +11,7 @@ from langchain import PromptTemplate
 # Create prompt template for generating Instagram text
 
 tweet_template_insta = """Give me {number} post content on {topic} in English under {character} limit.
-
+1. Write in plain simple English like a human
 2. Ensure all content is respectful and appropriate for all audiences.
 3. Avoid creating content on offensive, controversial, or sensitive topics.
 4. Understand the context and give the content
